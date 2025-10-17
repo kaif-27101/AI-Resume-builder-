@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Roboto+Slab:wght@400;500;600&family=Source+Sans+Pro:wght@400;600&family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+          "react/": "https://aistudiocdn.com/react@^19.2.0/",
+          "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0"
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --background-start-light: #f8fafc; /* slate-50 */
+        --background-end-light: #eef2f9; 
+        --background-start-dark: #000000;
+        --background-end-dark: #111827; /* gray-900 */
+        --text-light: #1e293b; /* slate-800 */
+        --text-dark: #e2e8f0; /* slate-200 */
+        --accent-primary: #38bdf8; /* sky-400 */
+        --accent-secondary: #0ea5e9; /* sky-500 */
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .gradient-background {
+        background-color: var(--background-start-light);
+        background-image: linear-gradient(180deg, var(--background-start-light) 0%, var(--background-end-light) 100%);
+      }
+      .dark .gradient-background {
+        background-color: var(--background-start-dark);
+        background-image: linear-gradient(180deg, var(--background-start-dark) 0%, var(--background-end-dark) 100%);
+      }
+      .font-inter { font-family: 'Inter', sans-serif; }
+      .font-lora { font-family: 'Lora', serif; }
+      .font-roboto-slab { font-family: 'Roboto Slab', serif; }
+      .font-source-sans-pro { font-family: 'Source Sans Pro', sans-serif; }
+      .font-playfair-display { font-family: 'Playfair Display', serif; }
+      .font-dancing-script { font-family: 'Dancing Script', cursive; }
+      
+      @media print {
+        body {
+          background-color: white !important;
+          background-image: none !important;
+        }
+        body * {
+          visibility: hidden;
+        }
+        #printable-resume, #printable-resume * {
+          visibility: visible;
+        }
+        #printable-resume {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          margin: 0;
+          padding: 1.5rem;
+          border: none;
+          box-shadow: none;
+          background-color: white !important;
+        }
+        #printable-resume h1, 
+        #printable-resume h2, 
+        #printable-resume h3, 
+        #printable-resume p, 
+        #printable-resume li,
+        #printable-resume ul {
+            color: black !important;
+        }
+        header, 
+        main > div.grid > div:first-child,
+        #download-btn-container {
+            display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="gradient-background">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
